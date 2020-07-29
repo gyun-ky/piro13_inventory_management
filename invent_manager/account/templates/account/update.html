@@ -1,0 +1,19 @@
+{% extends "account/layout.html" %}
+
+{% block title %}
+    <h3>Account Update</h3>
+    <p>거래처 수 페이지 입니다. 여기서 거래처 상세 정보를 수정할 수 있습니다.</p>
+{% endblock %}
+
+{% block content %}
+    <form action="{% url "account:update" pk=account.pk %}" method="POST" >
+        {% csrf_token %}
+        거래처 명 :
+        <input type="text" name="company" value="{{ account.title }}"><br>
+        번호 :
+        <input type="number" name="number" value="{{ account.number }}"><br>
+        주소 :
+        <input type="text" name="address" value="{{ account.address }}"><br>
+        <input type="submit" value="저장">
+    </form>
+{% endblock %}

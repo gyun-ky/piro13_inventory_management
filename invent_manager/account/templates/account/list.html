@@ -1,0 +1,28 @@
+{% extends "account/layout.html" %}
+
+{% block style %}
+    .content_container{
+        margin:10px, 10%;
+    }
+    .content_container ul>li{
+        width:30%;
+        background-color : green;
+        display : inline-block;
+    }
+{% endblock %}
+
+{% block title %}
+    <h3>Account List</h3>
+    <p>거래처 목록 페이지 입니다. 거래처를 선택하여 상세 정보를 확일할 수 있습니다.</p>
+{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for account in accounts %}
+        <li>
+            <h3>{{ account.company }}</h3><br>
+            <p>{{ account.number}}<br>{{ account.address }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

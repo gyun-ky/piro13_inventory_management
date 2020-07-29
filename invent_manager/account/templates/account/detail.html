@@ -1,0 +1,21 @@
+{% extends "account/layout.html" %}
+
+{% block title %}
+    <h3>Account Detail</h3>
+    <p>거래처 세부내용 페이지 입니다. 거래처의 자세한 사항을 확일할 수 있습니다.</p>
+{% endblock %}
+
+{% block content %}
+
+    <div class="detail">
+        <h1>{{ account.company }}</h1>
+        <ul>
+            <li>{{ account.number }}</li>
+            <li>{{ account.address }}</li>
+        </ul>
+    </div>
+    <hr>
+    <a href="{% url "account:delete" pk=account.pk %}">삭제</a>
+    <a href="{% url "account:list" %}">목록</a>
+    <a href="{% url "account:update" pk=account.id %}">수정</a>
+{% endblock %}
