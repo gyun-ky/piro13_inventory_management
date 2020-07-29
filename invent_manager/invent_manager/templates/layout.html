@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    nav{
+        width : 100%;
+        background-color: midnightblue;
+    }
+    nav a{
+        color : white;
+    }
+    {% block style %}
+    {% endblock %}
+</style>
+<body>
+    <nav>
+        <a href="">Inventory Manage</a>
+        <a href="">상품 등록</a>
+        <a href="">거래처 등록</a>
+        <a href="">거래처 관리</a>
+    </nav>
+    {% block title %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <hr>
+        <h4>피로그래밍 | 13기 김기윤</h4>
+        <p>아예이오우 굉장히 피곤하다 지금이 몇시인가 시간인가 새벽인</p>
+    </footer>
+
+</body>
+</html>
