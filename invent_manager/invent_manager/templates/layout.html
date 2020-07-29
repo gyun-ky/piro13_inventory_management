@@ -12,6 +12,10 @@
     nav a{
         color : white;
     }
+    .title_container{
+        margin: 0 auto;
+    }
+
     {% block style %}
     {% endblock %}
 </style>
@@ -22,12 +26,17 @@
         <a href="">거래처 등록</a>
         <a href="">거래처 관리</a>
     </nav>
-    {% block title %}
-    {% endblock %}
+    <div class="content">
+        <div class="title_container">
+            {% block title %}
+            {% endblock %}
+        </div>
 
-    {% block content %}
-    {% endblock %}
-
+        <div class="content_container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
     <footer>
         <hr>
         <h4>피로그래밍 | 13기 김기윤</h4>
