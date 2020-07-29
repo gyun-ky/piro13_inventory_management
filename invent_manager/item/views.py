@@ -5,7 +5,7 @@ from .models import Item
 def list(request):
     items = Item.objects.all()
     cxt = {
-        'items':items
+        'items':items,
     }
     return render(request, 'item/list.html', cxt)
 
@@ -24,16 +24,50 @@ def register(request):
     pk = item.id
 
     url = reverse("item:detail", kwargs={'pk':pk})
-    return redirect(url)
+    return redirect(to=url)
 
 def detail(request, pk):
     item = Item.objects.get(id=pk)
 
     cxt={
-        'item':item
+        'item':item,
     }
 
-    return render(request, "item/datail.html", cxt)
+    return render(request, "item/detail.html", cxt)
+
+def update(request, pk):
+    item = Item.objects.get(id=pk)
+
+    if request.method == "GET":
+        cxt = {
+            'item':item,
+        }
+        return render(request, "item/update.html", cxt)
+
+    title = request.POST['title']
+    image = request.POST['image']
+    content = request.POST['content']
+    price = request.POST['price']
+    amount = request.POST['amount']
+
+    item.title = title
+    item.image = image
+    item.content = content
+    item.price = price
+    item.amount = amount
+
+    item.save()
+
+    url = reverse("item:detail", kwargs={'pk':item.id})
+    return redirect(to=url)
+
+def delete(request, pk):
+    item = Item.objects.get(id=pk)
+
+    item.delete()
+
+    url = reverse("item:list")
+    return redirect(to=url)
 
 
 

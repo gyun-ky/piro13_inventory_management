@@ -1,10 +1,30 @@
 {% extends "item/layout.html" %}
 
+{% block style %}
+    .content_container{
+        background-color : gray;
+        margin:10px, 10%;
+    }
+    .content_container ul>li{
+        display : inline-block;
+    }
+{% endblock %}
+
 {% block title %}
     <h3>Item List</h3>
     <p>상품 목록 페이지 입니다. 상품을 선택하여 상세 정보를 확일할 수 있습니다.</p>
 {% endblock %}
 
 {% block content %}
-
+    <ul>
+        {% for item in items %}
+        <li>
+            {% if item.image %}
+                <img src="{{ item.image.url }}" style="max-width: 100px">
+            {% endif %}
+            <h3>{{ item.title }}</h3>
+            <p>가격 : {{ item.price }}<br>남은 수량 : {{ item.amount }}</p>
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

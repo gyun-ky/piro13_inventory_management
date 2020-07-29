@@ -1,0 +1,23 @@
+{% extends "item/layout.html" %}
+
+{% block title %}
+    <h3>Item Register</h3>
+    <p>상품 등록 페이지 입니다. 여기서 상품을 등록할 수 있습니.</p>
+{% endblock %}
+
+{% block content %}
+    <form action="{% url "item:register" %}" method="POST">
+        {% csrf_token %}
+        Title:
+        <input type="text" name="title"><br>
+        Image:
+        <input type="file" name="image"><br>
+        Content:
+        <textarea name="content"></textarea><br>
+        Price:
+        <input type="number" name="price"><br>
+        Amount:
+        <input type="number" name="amount"><br>
+        <input type="submit" value="저장">
+    </form>
+{% endblock %}

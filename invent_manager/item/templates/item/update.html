@@ -1,0 +1,23 @@
+{% extends "item/layout.html" %}
+
+{% block title %}
+    <h3>Item Update</h3>
+    <p>상품 수정 페이지 입니다. 여기서 상품 상제 정보를 수정할 수 있습니다.</p>
+{% endblock %}
+
+{% block content %}
+    <form action="{% url "item:update" pk=item.pk %}" method="POST">
+        {% csrf_token %}
+        Title:
+        <input type="text" name="title" value="{{ item.title }}"><br>
+        Image:
+        <input type="file" name="image" value="{{ item.image }}"><br>
+        Content:
+        <textarea name="content" value="{{ item.content }}"></textarea><br>
+        Price:
+        <input type="number" name="price" value="{{ item.price }}"><br>
+        Amount:
+        <input type="number" name="amount" value="{{ item.amount }}"><br>
+        <input type="submit" value="저장">
+    </form>
+{% endblock %}
