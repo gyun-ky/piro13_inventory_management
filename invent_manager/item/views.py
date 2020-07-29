@@ -14,7 +14,7 @@ def register(request):
         return render(request, 'item/register.html', context={})
 
     title = request.POST['title']
-    image = request.POST['image']
+    image = request.FILES['image']
     content = request.POST['content']
     price = request.POST['price']
     amount = request.POST['amount']
@@ -45,7 +45,7 @@ def update(request, pk):
         return render(request, "item/update.html", cxt)
 
     title = request.POST['title']
-    image = request.POST['image']
+    image = request.FILES['image']
     content = request.POST['content']
     price = request.POST['price']
     amount = request.POST['amount']

@@ -6,12 +6,12 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{% url "item:update" pk=item.pk %}" method="POST">
+    <form action="{% url "item:update" pk=item.pk %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         Title:
         <input type="text" name="title" value="{{ item.title }}"><br>
         Image:
-        <input type="file" name="image" value="{{ item.image }}"><br>
+        <input type="file" name="image" value="{{ item.image.url }}"><br>
         Content:
         <textarea name="content" value="{{ item.content }}"></textarea><br>
         Price:
