@@ -18,6 +18,12 @@
         <input type="number" name="price" value="{{ item.price }}"><br>
         Amount:
         <input type="number" name="amount" value="{{ item.amount }}"><br>
+        Account:
+        <datalist name = "account">
+            {% for account in accounts %}
+                <option value="{{ account.company }}"></option>
+            {% endfor %}
+        </datalist>
         <input type="submit" value="저장">
     </form>
 {% endblock %}

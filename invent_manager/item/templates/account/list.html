@@ -6,8 +6,12 @@
     }
     .content_container ul>li{
         width:30%;
-        background-color : green;
+        text-decoration:none;
         display : inline-block;
+        font-color:white;
+    }
+    .list_box{
+        background-color : green;
     }
 {% endblock %}
 
@@ -19,10 +23,14 @@
 {% block content %}
     <ul>
         {% for account in accounts %}
-        <li>
-            <h3>{{ account.company }}</h3><br>
-            <p>{{ account.number}}<br>{{ account.address }}</p>
-        </li>
+            <a href="{% url "item:a_detail" pk=account.pk %}">
+            <div class="list_box">
+                <li>
+                    <h3>{{ account.company }}</h3><br>
+                    <p>{{ account.number}}<br>{{ account.address }}</p>
+                </li>
+            </div>
+            </a>
         {% endfor %}
     </ul>
 {% endblock %}

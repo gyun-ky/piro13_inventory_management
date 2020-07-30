@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{% url "account:update" pk=account.pk %}" method="POST" >
+    <form action="{% url "item:a_update" pk=account.pk %}" method="POST" >
         {% csrf_token %}
         거래처 명 :
         <input type="text" name="company" value="{{ account.title }}"><br>
